@@ -63,6 +63,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Documentacao\ProjetoDoeComPaixao.docx" />
+    <None Include="Documentacao\workbench projeto doação.mwb" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,7 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="Documentacao\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentacao\DoeComPaixao-Caso de Uso.drawio.png" />
+    <Content Include="Documentacao\DoeComPaixaoGit.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
