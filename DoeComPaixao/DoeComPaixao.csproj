@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Telas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,9 +79,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Documentacao\DoeComPaixao-Caso de Uso.drawio.png" />
     <Content Include="Documentacao\DoeComPaixaoGit.txt" />
