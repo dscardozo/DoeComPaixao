@@ -77,6 +77,9 @@
     <EmbeddedResource Include="Telas\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Documentacao\ProjetoDoeComPaixao.docx" />
     <None Include="Documentacao\workbench projeto doação.mwb" />
     <None Include="Properties\Settings.settings">

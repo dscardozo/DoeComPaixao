@@ -49,7 +49,6 @@ namespace DoeComPaixao.Classes
 
         public static Cliente RealizarLogin(string email, string senha)
         {
-
             string query = string.Format($"SELECT * FROM Funcionario WHERE Email = '{email}'");
             Conexao cn = new Conexao(query);
             Funcionario funcionario = new Funcionario();

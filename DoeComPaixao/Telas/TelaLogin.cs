@@ -17,7 +17,7 @@ namespace DoeComPaixao
         public TelaLogin()
         {
             InitializeComponent();
-            TssStatusConexao.Text = "Conectando, aguarde . . . ";
+            
         }
 
         private void TelaLogin_Load(object sender, EventArgs e)
@@ -75,15 +75,18 @@ namespace DoeComPaixao
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            TssStatusConexao.Text = "Conectando, aguarde . . . ";
+
             try
             {
-                Cliente cliente = new Cliente();
-                Cliente.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
+                
+                Cliente logado = Cliente.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
+                
                 TssStatusConexao.Text = "Conectado!";
 
-                TelaPrincipal tlPrincipal = new TelaPrincipal();
-
+                TelaPrincipal tlPrincipal = new TelaPrincipal(logado);               
                 tlPrincipal.ShowDialog();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -93,8 +96,6 @@ namespace DoeComPaixao
                               , MessageBoxButtons.OK
                               , MessageBoxIcon.Error);
             }
-
-
         }
     }
 }
