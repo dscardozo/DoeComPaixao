@@ -22,7 +22,7 @@ namespace DoeComPaixao.Telas
             
             InitializeComponent();
             _funcLogado = logado;
-            LblTelaPrincipal.Text = $"Seja Benvindo a Tela Principal {_funcLogado.Nome}";
+            
             
         }
 
@@ -36,6 +36,11 @@ namespace DoeComPaixao.Telas
         private void TmrRelogio_Tick(object sender, EventArgs e)
         {
             TssDataHora.Text = DateTime.Now.ToLongDateString() + "   " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

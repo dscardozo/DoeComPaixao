@@ -86,7 +86,7 @@ namespace DoeComPaixao
 
                 TelaPrincipal tlPrincipal = new TelaPrincipal(logado);               
                 tlPrincipal.ShowDialog();
-                this.Hide();
+                this.Close();
             }
             catch (Exception ex)
             {
