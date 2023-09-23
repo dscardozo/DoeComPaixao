@@ -42,5 +42,10 @@ namespace DoeComPaixao.Telas
         {
 
         }
+
+        private void anúncioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
