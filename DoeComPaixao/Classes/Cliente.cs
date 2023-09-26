@@ -40,63 +40,12 @@ namespace DoeComPaixao.Classes
             FlagCNH = flagCnh;
             CodEndereco = codEndereco;
             RendaFamiliar = rendaFamiliar;
-            Carteira = carteira;
-            
+            Carteira = carteira;            
         }
+
+
         #endregion
 
-        #region Métodos
-
-        public static Cliente RealizarLogin(string email, string senha)
-        {
-            string query = string.Format($"SELECT * FROM Funcionario WHERE Email = '{email}'");
-            Conexao cn = new Conexao(query);
-            Funcionario funcionario = new Funcionario();
-
-            try
-            {
-                cn.AbrirConexao();
-                cn.dr = cn.comando.ExecuteReader();
-
-                if (cn.dr.HasRows)
-                {                  
-                    while (cn.dr.Read())
-                    {
-                        funcionario.CodCliente = Convert.ToInt32(cn.dr[0]);
-                        funcionario.Nome = cn.dr[1].ToString();                        
-                        funcionario.Senha = cn.dr[2].ToString();
-                        funcionario.NivelAcesso = Convert.ToInt32(cn.dr[3]);
-                        funcionario.Ativo = Convert.ToBoolean(cn.dr[4]);
-                        funcionario.Email = cn.dr[5].ToString();                                                                       
-                    }
-
-                    if (funcionario.Senha == Crypto.Sha256(senha))
-                    {
-                        if (funcionario.Ativo)
-                        {
-                            return funcionario;
-                        }
-                        else
-                        {
-                            throw new Exception("Usuário bloqueado");
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("Senha incorreta!");
-                    }
-
-                }
-                else
-                {
-                    throw new Exception("E-mail inexistente!");
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            #endregion
-        }
+        
     }
 }
