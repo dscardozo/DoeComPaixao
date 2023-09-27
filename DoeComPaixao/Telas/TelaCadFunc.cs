@@ -34,7 +34,6 @@ namespace DoeComPaixao.Telas
                                    MessageBoxIcon.Error);
             }
         }
-
         private void ConfiguraDgvFuncionarios()
         {
             DgvFuncionarios.Columns.Add("CodFunc", "Código do Funcionário");
@@ -59,9 +58,7 @@ namespace DoeComPaixao.Telas
             DgvFuncionarios.ColumnHeadersHeight = 35;
             DgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            DgvFuncionarios.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
         }
-
         private void CarregaDgvFuncionarios(List<Funcionario> funcionarios = null)
         {
             DgvFuncionarios.Rows.Clear();
@@ -79,24 +76,20 @@ namespace DoeComPaixao.Telas
                     }
                 }
             }
-        }
-        
-
+        }       
         private void DgvFuncionarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == DgvFuncionarios.Columns["Ativo"].Index) // Verifica se é uma célula válida na coluna "Ativo"
+            if (e.RowIndex >= 0 && e.ColumnIndex == DgvFuncionarios.Columns["Ativo"].Index) 
             {
                 DataGridViewRow row = DgvFuncionarios.Rows[e.RowIndex];
                 bool ativo = Convert.ToBoolean(row.Cells["Ativo"].Value);
 
                 if (!ativo)
                 {
-                    // Define o estilo da linha correspondente para vermelho claro
                     row.DefaultCellStyle.BackColor = Color.LightCoral;
                 }
             }
         }
-
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
             if (_logado.NivelAcesso != 1)
@@ -155,7 +148,6 @@ namespace DoeComPaixao.Telas
             BtnReativar.FlatAppearance.BorderColor = Color.Salmon;
             CbbBuscar.SelectedIndex = 0;
         }
-
         private void DgvFuncionarios_SelectionChanged(object sender, EventArgs e)
         {
             if (DgvFuncionarios.Rows.Count < 1 || DgvFuncionarios.SelectedRows.Count < 1)
@@ -196,7 +188,6 @@ namespace DoeComPaixao.Telas
                                    MessageBoxIcon.Error);
             }
         }
-
         private void TelaCadFunc_Load(object sender, EventArgs e)
         {
             try
@@ -213,18 +204,15 @@ namespace DoeComPaixao.Telas
                                    MessageBoxIcon.Error);
             }
         }
-
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             List<Funcionario> listaFuncFiltrada = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, TxtBuscar.Text);
             CarregaDgvFuncionarios(listaFuncFiltrada);
         }
-
         private void BtnLimparBusca_Click(object sender, EventArgs e)
         {
             TxtBuscar.Clear();
         }
-
         private void BtnReativar_Click(object sender, EventArgs e)
         {
             try
@@ -250,15 +238,53 @@ namespace DoeComPaixao.Telas
                                 MessageBoxIcon.Error);
             }
         }
-
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             LimpaCampos();
         }
-
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            _funcionarioSelecionado.Excluir();
+            if (_funcionarioSelecionado.Ativo != true)
+            {
+                try
+                {
+
+                    BtnReativar.Enabled = true;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Erro",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            else if (_logado.NivelAcesso == 1)
+            {
+                try
+                {
+                    DialogResult dr = MessageBox.Show($"Você realmente deseja desativar o Funcionario(a) {_funcionarioSelecionado.Nome}?"
+                                  , "Remover Funcionario"
+                                  , MessageBoxButtons.YesNo
+                                  , MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        _funcionarioSelecionado.Ativo = false;
+                        _funcionarioSelecionado.Excluir();
+                        CarregaDgvFuncionarios();
+                        LimpaCampos();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Erro",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
                 
     }

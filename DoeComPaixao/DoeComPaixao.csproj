@@ -61,7 +61,11 @@
     </Compile>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Telas\Anuncio.designer.cs">
+=======
+    <Compile Include="Telas\Anuncio.Designer.cs">
+>>>>>>> Stashed changes
 =======
     <Compile Include="Telas\Anuncio.Designer.cs">
 >>>>>>> Stashed changes
@@ -78,12 +82,15 @@
     </Compile>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Telas\TelaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Telas\TelaCategoria.Designer.cs">
       <DependentUpon>TelaCategoria.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -127,9 +134,12 @@
     </EmbeddedResource>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <EmbeddedResource Include="Telas\TelaCategoria.resx">
       <DependentUpon>TelaCategoria.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

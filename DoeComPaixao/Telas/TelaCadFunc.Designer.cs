@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadFunc));
             this.GpbCadastro = new System.Windows.Forms.GroupBox();
             this.LblNivelAcesso = new System.Windows.Forms.Label();
@@ -80,7 +84,7 @@
             this.GpbCadastro.Controls.Add(this.LblCodF);
             this.GpbCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GpbCadastro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.GpbCadastro.Location = new System.Drawing.Point(12, 12);
+            this.GpbCadastro.Location = new System.Drawing.Point(92, 12);
             this.GpbCadastro.Name = "GpbCadastro";
             this.GpbCadastro.Size = new System.Drawing.Size(818, 260);
             this.GpbCadastro.TabIndex = 0;
@@ -256,15 +260,45 @@
             this.DgvFuncionarios.AllowUserToAddRows = false;
             this.DgvFuncionarios.AllowUserToDeleteRows = false;
             this.DgvFuncionarios.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvFuncionarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvFuncionarios.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.DgvFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvFuncionarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFuncionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvFuncionarios.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvFuncionarios.Location = new System.Drawing.Point(13, 371);
             this.DgvFuncionarios.MultiSelect = false;
             this.DgvFuncionarios.Name = "DgvFuncionarios";
             this.DgvFuncionarios.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFuncionarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvFuncionarios.RowHeadersVisible = false;
             this.DgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvFuncionarios.Size = new System.Drawing.Size(818, 315);
+            this.DgvFuncionarios.Size = new System.Drawing.Size(999, 315);
             this.DgvFuncionarios.TabIndex = 1;
             this.DgvFuncionarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvFuncionarios_CellFormatting);
             this.DgvFuncionarios.SelectionChanged += new System.EventHandler(this.DgvFuncionarios_SelectionChanged);
@@ -279,7 +313,7 @@
             this.GpbBusca.Controls.Add(this.LblBuscar);
             this.GpbBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GpbBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.GpbBusca.Location = new System.Drawing.Point(13, 278);
+            this.GpbBusca.Location = new System.Drawing.Point(92, 278);
             this.GpbBusca.Name = "GpbBusca";
             this.GpbBusca.Size = new System.Drawing.Size(817, 87);
             this.GpbBusca.TabIndex = 2;
@@ -320,6 +354,7 @@
             // 
             // CbbBuscar
             // 
+            this.CbbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbbBuscar.FormattingEnabled = true;
             this.CbbBuscar.Items.AddRange(new object[] {
             "Nome",
@@ -328,7 +363,7 @@
             "Nível de Acesso"});
             this.CbbBuscar.Location = new System.Drawing.Point(135, 40);
             this.CbbBuscar.Name = "CbbBuscar";
-            this.CbbBuscar.Size = new System.Drawing.Size(121, 32);
+            this.CbbBuscar.Size = new System.Drawing.Size(121, 28);
             this.CbbBuscar.TabIndex = 1;
             // 
             // LblBuscar
@@ -344,7 +379,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(843, 698);
+            this.ClientSize = new System.Drawing.Size(1024, 698);
             this.Controls.Add(this.GpbBusca);
             this.Controls.Add(this.DgvFuncionarios);
             this.Controls.Add(this.GpbCadastro);
