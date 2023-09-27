@@ -8,6 +8,7 @@ namespace DoeComPaixao.Classes
 {
     public class Cliente
     {
+
         #region Propriedades
         public int CodCliente { get; set; }
         public string Nome { get; set; }

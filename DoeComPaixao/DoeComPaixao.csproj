@@ -60,7 +60,11 @@
       <SubType>Form</SubType>
     </Compile>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Telas\Anuncio.designer.cs">
+=======
+    <Compile Include="Telas\Anuncio.Designer.cs">
+>>>>>>> Stashed changes
 =======
     <Compile Include="Telas\Anuncio.Designer.cs">
 >>>>>>> Stashed changes
@@ -73,12 +77,15 @@
       <DependentUpon>TelaCadFunc.cs</DependentUpon>
     </Compile>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Telas\TelaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Telas\TelaCategoria.Designer.cs">
       <DependentUpon>TelaCategoria.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <Compile Include="Telas\TelaFunc.cs">
@@ -119,9 +126,12 @@
       <DependentUpon>TelaCadFunc.cs</DependentUpon>
     </EmbeddedResource>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <EmbeddedResource Include="Telas\TelaCategoria.resx">
       <DependentUpon>TelaCategoria.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <EmbeddedResource Include="Telas\TelaFunc.resx">

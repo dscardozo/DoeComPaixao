@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadFunc));
             this.GpbCadastro = new System.Windows.Forms.GroupBox();
+            this.LblNivelAcesso = new System.Windows.Forms.Label();
+            this.BtnNovo = new System.Windows.Forms.Button();
+            this.BtnReativar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
@@ -45,14 +48,11 @@
             this.LblCodF = new System.Windows.Forms.Label();
             this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.GpbBusca = new System.Windows.Forms.GroupBox();
+            this.BtnLimparBusca = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbbBuscar = new System.Windows.Forms.ComboBox();
             this.LblBuscar = new System.Windows.Forms.Label();
-            this.BtnLimparBusca = new System.Windows.Forms.Button();
-            this.BtnReativar = new System.Windows.Forms.Button();
-            this.BtnNovo = new System.Windows.Forms.Button();
-            this.LblNivelAcesso = new System.Windows.Forms.Label();
             this.GpbCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
@@ -86,6 +86,41 @@
             this.GpbCadastro.TabIndex = 0;
             this.GpbCadastro.TabStop = false;
             this.GpbCadastro.Text = "Cadastrar";
+            // 
+            // LblNivelAcesso
+            // 
+            this.LblNivelAcesso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblNivelAcesso.Location = new System.Drawing.Point(381, 31);
+            this.LblNivelAcesso.Name = "LblNivelAcesso";
+            this.LblNivelAcesso.Size = new System.Drawing.Size(37, 29);
+            this.LblNivelAcesso.TabIndex = 18;
+            this.LblNivelAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnNovo
+            // 
+            this.BtnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnNovo.Location = new System.Drawing.Point(546, 194);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(129, 45);
+            this.BtnNovo.TabIndex = 17;
+            this.BtnNovo.Text = "NOVO";
+            this.BtnNovo.UseVisualStyleBackColor = false;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
+            // 
+            // BtnReativar
+            // 
+            this.BtnReativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnReativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReativar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnReativar.Location = new System.Drawing.Point(681, 194);
+            this.BtnReativar.Name = "BtnReativar";
+            this.BtnReativar.Size = new System.Drawing.Size(129, 45);
+            this.BtnReativar.TabIndex = 16;
+            this.BtnReativar.Text = "REATIVAR";
+            this.BtnReativar.UseVisualStyleBackColor = false;
+            this.BtnReativar.Click += new System.EventHandler(this.BtnReativar_Click);
             // 
             // pictureBox1
             // 
@@ -251,6 +286,18 @@
             this.GpbBusca.TabStop = false;
             this.GpbBusca.Text = "Painel de Busca";
             // 
+            // BtnLimparBusca
+            // 
+            this.BtnLimparBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnLimparBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnLimparBusca.Location = new System.Drawing.Point(612, 40);
+            this.BtnLimparBusca.Name = "BtnLimparBusca";
+            this.BtnLimparBusca.Size = new System.Drawing.Size(104, 32);
+            this.BtnLimparBusca.TabIndex = 4;
+            this.BtnLimparBusca.Text = "LIMPAR";
+            this.BtnLimparBusca.UseVisualStyleBackColor = false;
+            this.BtnLimparBusca.Click += new System.EventHandler(this.BtnLimparBusca_Click);
+            // 
             // BtnBuscar
             // 
             this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -292,53 +339,6 @@
             this.LblBuscar.Size = new System.Drawing.Size(123, 24);
             this.LblBuscar.TabIndex = 0;
             this.LblBuscar.Text = "Buscar por :";
-            // 
-            // BtnLimparBusca
-            // 
-            this.BtnLimparBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnLimparBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnLimparBusca.Location = new System.Drawing.Point(612, 40);
-            this.BtnLimparBusca.Name = "BtnLimparBusca";
-            this.BtnLimparBusca.Size = new System.Drawing.Size(104, 32);
-            this.BtnLimparBusca.TabIndex = 4;
-            this.BtnLimparBusca.Text = "LIMPAR";
-            this.BtnLimparBusca.UseVisualStyleBackColor = false;
-            this.BtnLimparBusca.Click += new System.EventHandler(this.BtnLimparBusca_Click);
-            // 
-            // BtnReativar
-            // 
-            this.BtnReativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnReativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReativar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnReativar.Location = new System.Drawing.Point(681, 194);
-            this.BtnReativar.Name = "BtnReativar";
-            this.BtnReativar.Size = new System.Drawing.Size(129, 45);
-            this.BtnReativar.TabIndex = 16;
-            this.BtnReativar.Text = "REATIVAR";
-            this.BtnReativar.UseVisualStyleBackColor = false;
-            this.BtnReativar.Click += new System.EventHandler(this.BtnReativar_Click);
-            // 
-            // BtnNovo
-            // 
-            this.BtnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnNovo.Location = new System.Drawing.Point(546, 194);
-            this.BtnNovo.Name = "BtnNovo";
-            this.BtnNovo.Size = new System.Drawing.Size(129, 45);
-            this.BtnNovo.TabIndex = 17;
-            this.BtnNovo.Text = "NOVO";
-            this.BtnNovo.UseVisualStyleBackColor = false;
-            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
-            // 
-            // LblNivelAcesso
-            // 
-            this.LblNivelAcesso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LblNivelAcesso.Location = new System.Drawing.Point(381, 31);
-            this.LblNivelAcesso.Name = "LblNivelAcesso";
-            this.LblNivelAcesso.Size = new System.Drawing.Size(37, 29);
-            this.LblNivelAcesso.TabIndex = 18;
-            this.LblNivelAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TelaCadFunc
             // 

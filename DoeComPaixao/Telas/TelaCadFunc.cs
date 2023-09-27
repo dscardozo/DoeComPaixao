@@ -260,6 +260,7 @@ namespace DoeComPaixao.Telas
         {
             _funcionarioSelecionado.Excluir();
         }
+                
     }
 }
 
