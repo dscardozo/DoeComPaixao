@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Categoria.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Crypto.cs" />
@@ -55,11 +56,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Telas\Anuncio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Anuncio.designer.cs">
+      <DependentUpon>Anuncio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\TelaCadFunc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Telas\TelaCadFunc.Designer.cs">
       <DependentUpon>TelaCadFunc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\TelaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaCategoria.Designer.cs">
+      <DependentUpon>TelaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\TelaFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaFunc.Designer.cs">
+      <DependentUpon>TelaFunc.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\TelaLogin.cs">
       <SubType>Form</SubType>
@@ -80,8 +99,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Anuncio.resx">
+      <DependentUpon>Anuncio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaCadFunc.resx">
       <DependentUpon>TelaCadFunc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaCategoria.resx">
+      <DependentUpon>TelaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaFunc.resx">
+      <DependentUpon>TelaFunc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
