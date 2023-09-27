@@ -19,7 +19,8 @@ namespace DoeComPaixao.Classes
         public int CodEndereco { get; set; }
         public decimal RendaFamiliar { get; set; }
         public int Carteira { get; set; }
-        
+        public bool Ativo { get; set; }
+
 
         #endregion
 
@@ -29,7 +30,7 @@ namespace DoeComPaixao.Classes
                 
         }
 
-        public Cliente(int codCliente, string nome, string cpf, string email, string senha, int tipo, bool flagCnh, int codEndereco, decimal rendaFamiliar, int carteira)
+        public Cliente(int codCliente, string nome, string cpf, string email, string senha, int tipo, bool flagCnh, int codEndereco, decimal rendaFamiliar, int carteira, bool ativo)
         {
             CodCliente = codCliente;
             Nome = nome;
@@ -41,7 +42,7 @@ namespace DoeComPaixao.Classes
             CodEndereco = codEndereco;
             RendaFamiliar = rendaFamiliar;
             Carteira = carteira;
-            
+            Ativo = ativo;
         }
         #endregion
 
@@ -49,9 +50,9 @@ namespace DoeComPaixao.Classes
 
         public static Cliente RealizarLogin(string email, string senha)
         {
-            string query = string.Format($"SELECT * FROM Funcionario WHERE Email = '{email}'");
+            string query = string.Format($"SELECT * FROM Cliente WHERE Email = '{email}'");
             Conexao cn = new Conexao(query);
-            Funcionario funcionario = new Funcionario();
+            Cliente cliente = new Cliente();
 
             try
             {
@@ -59,22 +60,27 @@ namespace DoeComPaixao.Classes
                 cn.dr = cn.comando.ExecuteReader();
 
                 if (cn.dr.HasRows)
-                {                  
+                {
                     while (cn.dr.Read())
                     {
-                        funcionario.CodCliente = Convert.ToInt32(cn.dr[0]);
-                        funcionario.Nome = cn.dr[1].ToString();                        
-                        funcionario.Senha = cn.dr[2].ToString();
-                        funcionario.NivelAcesso = Convert.ToInt32(cn.dr[3]);
-                        funcionario.Ativo = Convert.ToBoolean(cn.dr[4]);
-                        funcionario.Email = cn.dr[5].ToString();                                                                       
+                        cliente.CodCliente = Convert.ToInt32(cn.dr[0]);
+                        cliente.Nome = cn.dr[1].ToString();
+                        cliente.Cpf = cn.dr[2].ToString();
+                        cliente.Email = cn.dr[3].ToString();
+                        cliente.Senha = cn.dr[4].ToString();
+                        cliente.Tipo = Convert.ToInt32(cn.dr[5]);
+                        cliente.FlagCNH = Convert.ToBoolean(cn.dr[6]);
+                        cliente.CodEndereco = Convert.ToInt32(cn.dr[7]);
+                        cliente.RendaFamiliar = Convert.ToDecimal(cn.dr[8]);
+                        cliente.Carteira = Convert.ToInt32(cn.dr[9]);
+
                     }
 
-                    if (funcionario.Senha == Crypto.Sha256(senha))
+                    if (cliente.Senha == Crypto.Sha256(senha))
                     {
-                        if (funcionario.Ativo)
+                        if (cliente.Ativo)
                         {
-                            return funcionario;
+                            return cliente;
                         }
                         else
                         {

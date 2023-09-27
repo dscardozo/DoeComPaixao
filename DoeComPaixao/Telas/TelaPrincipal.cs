@@ -15,9 +15,9 @@ namespace DoeComPaixao.Telas
 {
     public partial class TelaPrincipal : Form
     {
-        private Cliente _funcLogado;
+        private Funcionario _funcLogado;
 
-        public TelaPrincipal(Cliente logado)
+        public TelaPrincipal(Funcionario logado)
         {
             
             InitializeComponent();
@@ -40,7 +40,10 @@ namespace DoeComPaixao.Telas
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TelaCadFunc tlCadFunc = new TelaCadFunc(_funcLogado);
+            tlCadFunc.MdiParent = this;
 
+            tlCadFunc.Show();
         }
 
         private void anúncioToolStripMenuItem_Click(object sender, EventArgs e)

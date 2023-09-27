@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLogin));
             this.GpbLogin = new System.Windows.Forms.GroupBox();
-            this.BtnLimpar = new System.Windows.Forms.Button();
-            this.BtnLogin = new System.Windows.Forms.Button();
+            this.SslStatusConexao = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TssStatusConexao = new System.Windows.Forms.ToolStripStatusLabel();
             this.ChkVisualizarSenha = new System.Windows.Forms.CheckBox();
             this.TxtSenha = new System.Windows.Forms.TextBox();
             this.LblSenha = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
+            this.BtnLimpar = new System.Windows.Forms.Button();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.StsBarraStatus = new System.Windows.Forms.StatusStrip();
             this.StlData = new System.Windows.Forms.ToolStripStatusLabel();
             this.TmrRelogio = new System.Windows.Forms.Timer(this.components);
-            this.SslStatusConexao = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TssStatusConexao = new System.Windows.Forms.ToolStripStatusLabel();
             this.GpbLogin.SuspendLayout();
+            this.SslStatusConexao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.StsBarraStatus.SuspendLayout();
-            this.SslStatusConexao.SuspendLayout();
             this.SuspendLayout();
             // 
             // GpbLogin
@@ -69,34 +69,29 @@
             this.GpbLogin.TabStop = false;
             this.GpbLogin.Text = " ------------ Faça seu Login ------------";
             // 
-            // BtnLimpar
+            // SslStatusConexao
             // 
-            this.BtnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnLimpar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnLimpar.Location = new System.Drawing.Point(199, 282);
-            this.BtnLimpar.Name = "BtnLimpar";
-            this.BtnLimpar.Size = new System.Drawing.Size(100, 30);
-            this.BtnLimpar.TabIndex = 7;
-            this.BtnLimpar.Text = "LIMPAR";
-            this.BtnLimpar.UseVisualStyleBackColor = true;
-            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            this.SslStatusConexao.BackColor = System.Drawing.Color.Transparent;
+            this.SslStatusConexao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SslStatusConexao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.TssStatusConexao});
+            this.SslStatusConexao.Location = new System.Drawing.Point(3, 152);
+            this.SslStatusConexao.Name = "SslStatusConexao";
+            this.SslStatusConexao.Size = new System.Drawing.Size(350, 22);
+            this.SslStatusConexao.TabIndex = 9;
+            this.SslStatusConexao.Text = "statusStrip1";
             // 
-            // BtnLogin
+            // toolStripStatusLabel1
             // 
-            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnLogin.Location = new System.Drawing.Point(82, 282);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(100, 30);
-            this.BtnLogin.TabIndex = 6;
-            this.BtnLogin.Text = "LOGIN";
-            this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // TssStatusConexao
+            // 
+            this.TssStatusConexao.Name = "TssStatusConexao";
+            this.TssStatusConexao.Size = new System.Drawing.Size(93, 17);
+            this.TssStatusConexao.Text = "Status Conexão";
             // 
             // ChkVisualizarSenha
             // 
@@ -154,6 +149,35 @@
             this.LblEmail.TabIndex = 2;
             this.LblEmail.Text = "Informe seu E-mail ";
             // 
+            // BtnLimpar
+            // 
+            this.BtnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnLimpar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnLimpar.Location = new System.Drawing.Point(199, 282);
+            this.BtnLimpar.Name = "BtnLimpar";
+            this.BtnLimpar.Size = new System.Drawing.Size(100, 30);
+            this.BtnLimpar.TabIndex = 7;
+            this.BtnLimpar.Text = "LIMPAR";
+            this.BtnLimpar.UseVisualStyleBackColor = true;
+            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            // 
+            // BtnLogin
+            // 
+            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnLogin.Location = new System.Drawing.Point(82, 282);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(100, 30);
+            this.BtnLogin.TabIndex = 6;
+            this.BtnLogin.Text = "LOGIN";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
             // PicLogo
             // 
             this.PicLogo.BackColor = System.Drawing.Color.Transparent;
@@ -185,30 +209,6 @@
             // 
             this.TmrRelogio.Tick += new System.EventHandler(this.TmrRelogio_Tick);
             // 
-            // SslStatusConexao
-            // 
-            this.SslStatusConexao.BackColor = System.Drawing.Color.Transparent;
-            this.SslStatusConexao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SslStatusConexao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.TssStatusConexao});
-            this.SslStatusConexao.Location = new System.Drawing.Point(3, 152);
-            this.SslStatusConexao.Name = "SslStatusConexao";
-            this.SslStatusConexao.Size = new System.Drawing.Size(350, 22);
-            this.SslStatusConexao.TabIndex = 9;
-            this.SslStatusConexao.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // TssStatusConexao
-            // 
-            this.TssStatusConexao.Name = "TssStatusConexao";
-            this.TssStatusConexao.Size = new System.Drawing.Size(93, 17);
-            this.TssStatusConexao.Text = "Status Conexão";
-            // 
             // TelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,11 +228,11 @@
             this.Load += new System.EventHandler(this.TelaLogin_Load);
             this.GpbLogin.ResumeLayout(false);
             this.GpbLogin.PerformLayout();
+            this.SslStatusConexao.ResumeLayout(false);
+            this.SslStatusConexao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.StsBarraStatus.ResumeLayout(false);
             this.StsBarraStatus.PerformLayout();
-            this.SslStatusConexao.ResumeLayout(false);
-            this.SslStatusConexao.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

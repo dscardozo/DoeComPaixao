@@ -80,7 +80,7 @@ namespace DoeComPaixao
             try
             {
                 
-                Cliente logado = Cliente.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
+                Funcionario logado = Funcionario.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
                 
                 TssStatusConexao.Text = "Conectado!";
 
