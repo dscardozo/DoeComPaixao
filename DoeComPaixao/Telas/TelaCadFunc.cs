@@ -19,7 +19,7 @@ namespace DoeComPaixao.Telas
         public TelaCadFunc(Funcionario logado)
         {
             InitializeComponent();
-            _logado = (Funcionario)logado;
+            _logado = logado;
 
             try
             {
@@ -37,38 +37,31 @@ namespace DoeComPaixao.Telas
 
         private void ConfiguraDgvFuncionarios()
         {
-            // Criação das colunas no DgvUsuarios
             DgvFuncionarios.Columns.Add("CodFunc", "Código do Funcionário");
             DgvFuncionarios.Columns.Add("Nome", "Nome");           
             DgvFuncionarios.Columns.Add("NivelAcesso", "Nível de Acesso");
             DgvFuncionarios.Columns.Add("Ativo", "Ativo");
             DgvFuncionarios.Columns.Add("Email", "E-mail");
 
-
-            //Configuração dos alinhamentos de cada coluna no DgvUsuarios
             DgvFuncionarios.Columns["CodFunc"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Nome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["NivelAcesso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Email"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            //Configuração dos tamanhos de cada coluna do DgvUsuarios
             DgvFuncionarios.Columns["CodFunc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["NivelAcesso"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            //Configuarar tamanho em altura das linhas
             DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             DgvFuncionarios.ColumnHeadersHeight = 35;
             DgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            //Configurar cor para intercalar linahs
             DgvFuncionarios.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
         }
 
-        // Método para carregar o DvgUsuarios com os dados da lista
         private void CarregaDgvFuncionarios(List<Funcionario> funcionarios = null)
         {
             DgvFuncionarios.Rows.Clear();
@@ -113,7 +106,7 @@ namespace DoeComPaixao.Telas
                                 "Erro de permissão",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                return; // Mata o método (Encerra)
+                return; 
             }
 
 
@@ -151,16 +144,16 @@ namespace DoeComPaixao.Telas
             LblCodFunc.Text = "";
             TxtNome.Clear();
             TxtEmail.Clear();           
-            LblNivelAcesso.Text = "";
+            LblNivelAcess.Text = "";
             ChkAtivo.Checked = true;
             ChkAtivo.Enabled = false;
 
             DgvFuncionarios.ClearSelection();
             BtnCadastrar.Enabled = true;
             BtnAlterar.Enabled = false;
-            //BtnReativar.Enabled = false;
-            //BtnReativar.FlatAppearance.BorderColor = Color.Salmon;
-            //CbbBuscar.SelectedIndex = 0;
+            BtnReativar.Enabled = false;
+            BtnReativar.FlatAppearance.BorderColor = Color.Salmon;
+            CbbBuscar.SelectedIndex = 0;
         }
 
         private void DgvFuncionarios_SelectionChanged(object sender, EventArgs e)
@@ -173,7 +166,7 @@ namespace DoeComPaixao.Telas
             {
                 _funcionarioSelecionado = _funcionarios.Find(f => f.CodFunc == (int)DgvFuncionarios.SelectedRows[0].Cells[0].Value);
                 LblCodFunc.Text = _funcionarioSelecionado.CodFunc.ToString();
-                TxtNivelAcesso.Text = _funcionarioSelecionado.NivelAcesso.ToString();
+                LblNivelAcesso.Text = _funcionarioSelecionado.NivelAcesso.ToString();
                 TxtNome.Text = _funcionarioSelecionado.Nome;
                 TxtEmail.Text = _funcionarioSelecionado.Email;
                
@@ -183,17 +176,17 @@ namespace DoeComPaixao.Telas
                 BtnCadastrar.Enabled = false;
                 BtnAlterar.Enabled = true;
 
-                //if (_funcionarioSelecionado.Ativo == false)
-                //{
-                //    BtnReativar.Enabled = true;
-                //    BtnReativar.FlatAppearance.BorderColor = Color.Green;
-                //}
-                //else
+                if (_funcionarioSelecionado.Ativo == false)
+                {
+                    BtnReativar.Enabled = true;
+                    BtnReativar.FlatAppearance.BorderColor = Color.Green;
+                }
+                else
 
-                //{
-                //    BtnReativar.Enabled = false;
-                //    BtnReativar.FlatAppearance.BorderColor = Color.Salmon;
-                //}
+                {
+                    BtnReativar.Enabled = false;
+                    BtnReativar.FlatAppearance.BorderColor = Color.Salmon;
+                }
             }
             catch (Exception ex)
             {
@@ -219,6 +212,53 @@ namespace DoeComPaixao.Telas
                                    MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> listaFuncFiltrada = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, TxtBuscar.Text);
+            CarregaDgvFuncionarios(listaFuncFiltrada);
+        }
+
+        private void BtnLimparBusca_Click(object sender, EventArgs e)
+        {
+            TxtBuscar.Clear();
+        }
+
+        private void BtnReativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Você realmente deseja reativar o Funcionário(a) {_funcionarioSelecionado.Nome}?"
+                              , "Reativar Funcionário"
+                              , MessageBoxButtons.YesNo
+                              , MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    _funcionarioSelecionado.Ativo = true;
+                    _funcionarioSelecionado.Reativar();
+
+                    CarregaDgvFuncionarios();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            _funcionarioSelecionado.Excluir();
         }
     }
 }

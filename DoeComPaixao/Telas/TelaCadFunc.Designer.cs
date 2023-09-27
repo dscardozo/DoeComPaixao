@@ -28,38 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadFunc));
             this.GpbCadastro = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.TxtNome = new System.Windows.Forms.TextBox();
-            this.TxtNivelAcesso = new System.Windows.Forms.TextBox();
             this.ChkAtivo = new System.Windows.Forms.CheckBox();
             this.LblEmail = new System.Windows.Forms.Label();
-            this.LblNivelAcesso = new System.Windows.Forms.Label();
+            this.LblNivelAcess = new System.Windows.Forms.Label();
             this.LblNome = new System.Windows.Forms.Label();
             this.LblCodFunc = new System.Windows.Forms.Label();
             this.LblCodF = new System.Windows.Forms.Label();
             this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
+            this.GpbBusca = new System.Windows.Forms.GroupBox();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.CbbBuscar = new System.Windows.Forms.ComboBox();
+            this.LblBuscar = new System.Windows.Forms.Label();
+            this.BtnLimparBusca = new System.Windows.Forms.Button();
+            this.BtnReativar = new System.Windows.Forms.Button();
+            this.BtnNovo = new System.Windows.Forms.Button();
+            this.LblNivelAcesso = new System.Windows.Forms.Label();
             this.GpbCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
+            this.GpbBusca.SuspendLayout();
             this.SuspendLayout();
             // 
             // GpbCadastro
             // 
             this.GpbCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.GpbCadastro.Controls.Add(this.LblNivelAcesso);
+            this.GpbCadastro.Controls.Add(this.BtnNovo);
+            this.GpbCadastro.Controls.Add(this.BtnReativar);
+            this.GpbCadastro.Controls.Add(this.pictureBox1);
             this.GpbCadastro.Controls.Add(this.BtnExcluir);
             this.GpbCadastro.Controls.Add(this.BtnConsultar);
             this.GpbCadastro.Controls.Add(this.BtnAlterar);
             this.GpbCadastro.Controls.Add(this.BtnCadastrar);
             this.GpbCadastro.Controls.Add(this.TxtEmail);
             this.GpbCadastro.Controls.Add(this.TxtNome);
-            this.GpbCadastro.Controls.Add(this.TxtNivelAcesso);
             this.GpbCadastro.Controls.Add(this.ChkAtivo);
             this.GpbCadastro.Controls.Add(this.LblEmail);
-            this.GpbCadastro.Controls.Add(this.LblNivelAcesso);
+            this.GpbCadastro.Controls.Add(this.LblNivelAcess);
             this.GpbCadastro.Controls.Add(this.LblNome);
             this.GpbCadastro.Controls.Add(this.LblCodFunc);
             this.GpbCadastro.Controls.Add(this.LblCodF);
@@ -67,29 +82,41 @@
             this.GpbCadastro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.GpbCadastro.Location = new System.Drawing.Point(12, 12);
             this.GpbCadastro.Name = "GpbCadastro";
-            this.GpbCadastro.Size = new System.Drawing.Size(980, 260);
+            this.GpbCadastro.Size = new System.Drawing.Size(818, 260);
             this.GpbCadastro.TabIndex = 0;
             this.GpbCadastro.TabStop = false;
             this.GpbCadastro.Text = "Cadastrar";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DoeComPaixao.Properties.Resources.LogoDoe;
+            this.pictureBox1.Location = new System.Drawing.Point(532, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(278, 144);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // BtnExcluir
             // 
             this.BtnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExcluir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnExcluir.Location = new System.Drawing.Point(617, 194);
+            this.BtnExcluir.Location = new System.Drawing.Point(411, 194);
             this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(186, 45);
+            this.BtnExcluir.Size = new System.Drawing.Size(129, 45);
             this.BtnExcluir.TabIndex = 14;
             this.BtnExcluir.Text = "EXCLUIR";
             this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnConsultar
             // 
             this.BtnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnConsultar.Location = new System.Drawing.Point(421, 194);
+            this.BtnConsultar.Location = new System.Drawing.Point(276, 194);
             this.BtnConsultar.Name = "BtnConsultar";
-            this.BtnConsultar.Size = new System.Drawing.Size(186, 45);
+            this.BtnConsultar.Size = new System.Drawing.Size(129, 45);
             this.BtnConsultar.TabIndex = 13;
             this.BtnConsultar.Text = "CONSULTAR";
             this.BtnConsultar.UseVisualStyleBackColor = false;
@@ -97,10 +124,11 @@
             // BtnAlterar
             // 
             this.BtnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAlterar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnAlterar.Location = new System.Drawing.Point(225, 194);
+            this.BtnAlterar.Location = new System.Drawing.Point(141, 194);
             this.BtnAlterar.Name = "BtnAlterar";
-            this.BtnAlterar.Size = new System.Drawing.Size(186, 45);
+            this.BtnAlterar.Size = new System.Drawing.Size(129, 45);
             this.BtnAlterar.TabIndex = 12;
             this.BtnAlterar.Text = "ALTERAR";
             this.BtnAlterar.UseVisualStyleBackColor = false;
@@ -108,10 +136,11 @@
             // BtnCadastrar
             // 
             this.BtnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCadastrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
-            this.BtnCadastrar.Location = new System.Drawing.Point(28, 194);
+            this.BtnCadastrar.Location = new System.Drawing.Point(6, 194);
             this.BtnCadastrar.Name = "BtnCadastrar";
-            this.BtnCadastrar.Size = new System.Drawing.Size(186, 45);
+            this.BtnCadastrar.Size = new System.Drawing.Size(129, 45);
             this.BtnCadastrar.TabIndex = 11;
             this.BtnCadastrar.Text = "CADASTRAR";
             this.BtnCadastrar.UseVisualStyleBackColor = false;
@@ -130,13 +159,6 @@
             this.TxtNome.Name = "TxtNome";
             this.TxtNome.Size = new System.Drawing.Size(410, 35);
             this.TxtNome.TabIndex = 9;
-            // 
-            // TxtNivelAcesso
-            // 
-            this.TxtNivelAcesso.Location = new System.Drawing.Point(392, 24);
-            this.TxtNivelAcesso.Name = "TxtNivelAcesso";
-            this.TxtNivelAcesso.Size = new System.Drawing.Size(39, 35);
-            this.TxtNivelAcesso.TabIndex = 8;
             // 
             // ChkAtivo
             // 
@@ -159,14 +181,14 @@
             this.LblEmail.TabIndex = 6;
             this.LblEmail.Text = "E-mail :";
             // 
-            // LblNivelAcesso
+            // LblNivelAcess
             // 
-            this.LblNivelAcesso.AutoSize = true;
-            this.LblNivelAcesso.Location = new System.Drawing.Point(159, 30);
-            this.LblNivelAcesso.Name = "LblNivelAcesso";
-            this.LblNivelAcesso.Size = new System.Drawing.Size(216, 29);
-            this.LblNivelAcesso.TabIndex = 5;
-            this.LblNivelAcesso.Text = "Nivel de Acesso :";
+            this.LblNivelAcess.AutoSize = true;
+            this.LblNivelAcess.Location = new System.Drawing.Point(159, 30);
+            this.LblNivelAcess.Name = "LblNivelAcess";
+            this.LblNivelAcess.Size = new System.Drawing.Size(216, 29);
+            this.LblNivelAcess.TabIndex = 5;
+            this.LblNivelAcess.Text = "Nivel de Acesso :";
             // 
             // LblNome
             // 
@@ -201,31 +223,142 @@
             this.DgvFuncionarios.AllowUserToResizeRows = false;
             this.DgvFuncionarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.DgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvFuncionarios.Location = new System.Drawing.Point(12, 278);
+            this.DgvFuncionarios.Location = new System.Drawing.Point(13, 371);
             this.DgvFuncionarios.MultiSelect = false;
             this.DgvFuncionarios.Name = "DgvFuncionarios";
             this.DgvFuncionarios.ReadOnly = true;
             this.DgvFuncionarios.RowHeadersVisible = false;
             this.DgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvFuncionarios.Size = new System.Drawing.Size(980, 282);
+            this.DgvFuncionarios.Size = new System.Drawing.Size(818, 315);
             this.DgvFuncionarios.TabIndex = 1;
             this.DgvFuncionarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvFuncionarios_CellFormatting);
             this.DgvFuncionarios.SelectionChanged += new System.EventHandler(this.DgvFuncionarios_SelectionChanged);
+            // 
+            // GpbBusca
+            // 
+            this.GpbBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.GpbBusca.Controls.Add(this.BtnLimparBusca);
+            this.GpbBusca.Controls.Add(this.BtnBuscar);
+            this.GpbBusca.Controls.Add(this.TxtBuscar);
+            this.GpbBusca.Controls.Add(this.CbbBuscar);
+            this.GpbBusca.Controls.Add(this.LblBuscar);
+            this.GpbBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GpbBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.GpbBusca.Location = new System.Drawing.Point(13, 278);
+            this.GpbBusca.Name = "GpbBusca";
+            this.GpbBusca.Size = new System.Drawing.Size(817, 87);
+            this.GpbBusca.TabIndex = 2;
+            this.GpbBusca.TabStop = false;
+            this.GpbBusca.Text = "Painel de Busca";
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnBuscar.Location = new System.Drawing.Point(502, 40);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(104, 32);
+            this.BtnBuscar.TabIndex = 3;
+            this.BtnBuscar.Text = "BUSCAR";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.TxtBuscar.Location = new System.Drawing.Point(262, 40);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(234, 29);
+            this.TxtBuscar.TabIndex = 2;
+            // 
+            // CbbBuscar
+            // 
+            this.CbbBuscar.FormattingEnabled = true;
+            this.CbbBuscar.Items.AddRange(new object[] {
+            "Nome",
+            "E-mail",
+            "Código",
+            "Nível de Acesso"});
+            this.CbbBuscar.Location = new System.Drawing.Point(135, 40);
+            this.CbbBuscar.Name = "CbbBuscar";
+            this.CbbBuscar.Size = new System.Drawing.Size(121, 32);
+            this.CbbBuscar.TabIndex = 1;
+            // 
+            // LblBuscar
+            // 
+            this.LblBuscar.AutoSize = true;
+            this.LblBuscar.Location = new System.Drawing.Point(6, 48);
+            this.LblBuscar.Name = "LblBuscar";
+            this.LblBuscar.Size = new System.Drawing.Size(123, 24);
+            this.LblBuscar.TabIndex = 0;
+            this.LblBuscar.Text = "Buscar por :";
+            // 
+            // BtnLimparBusca
+            // 
+            this.BtnLimparBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnLimparBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnLimparBusca.Location = new System.Drawing.Point(612, 40);
+            this.BtnLimparBusca.Name = "BtnLimparBusca";
+            this.BtnLimparBusca.Size = new System.Drawing.Size(104, 32);
+            this.BtnLimparBusca.TabIndex = 4;
+            this.BtnLimparBusca.Text = "LIMPAR";
+            this.BtnLimparBusca.UseVisualStyleBackColor = false;
+            this.BtnLimparBusca.Click += new System.EventHandler(this.BtnLimparBusca_Click);
+            // 
+            // BtnReativar
+            // 
+            this.BtnReativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnReativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReativar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnReativar.Location = new System.Drawing.Point(681, 194);
+            this.BtnReativar.Name = "BtnReativar";
+            this.BtnReativar.Size = new System.Drawing.Size(129, 45);
+            this.BtnReativar.TabIndex = 16;
+            this.BtnReativar.Text = "REATIVAR";
+            this.BtnReativar.UseVisualStyleBackColor = false;
+            this.BtnReativar.Click += new System.EventHandler(this.BtnReativar_Click);
+            // 
+            // BtnNovo
+            // 
+            this.BtnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNovo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BtnNovo.Location = new System.Drawing.Point(546, 194);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(129, 45);
+            this.BtnNovo.TabIndex = 17;
+            this.BtnNovo.Text = "NOVO";
+            this.BtnNovo.UseVisualStyleBackColor = false;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
+            // 
+            // LblNivelAcesso
+            // 
+            this.LblNivelAcesso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblNivelAcesso.Location = new System.Drawing.Point(381, 31);
+            this.LblNivelAcesso.Name = "LblNivelAcesso";
+            this.LblNivelAcesso.Size = new System.Drawing.Size(37, 29);
+            this.LblNivelAcesso.TabIndex = 18;
+            this.LblNivelAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TelaCadFunc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1004, 572);
+            this.ClientSize = new System.Drawing.Size(843, 698);
+            this.Controls.Add(this.GpbBusca);
             this.Controls.Add(this.DgvFuncionarios);
             this.Controls.Add(this.GpbCadastro);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaCadFunc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "TelaCadFunc";
             this.Load += new System.EventHandler(this.TelaCadFunc_Load);
             this.GpbCadastro.ResumeLayout(false);
             this.GpbCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).EndInit();
+            this.GpbBusca.ResumeLayout(false);
+            this.GpbBusca.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,10 +369,9 @@
         private System.Windows.Forms.Label LblCodFunc;
         private System.Windows.Forms.Label LblCodF;
         private System.Windows.Forms.Label LblEmail;
-        private System.Windows.Forms.Label LblNivelAcesso;
+        private System.Windows.Forms.Label LblNivelAcess;
         private System.Windows.Forms.Label LblNome;
         private System.Windows.Forms.CheckBox ChkAtivo;
-        private System.Windows.Forms.TextBox TxtNivelAcesso;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.TextBox TxtNome;
         private System.Windows.Forms.Button BtnExcluir;
@@ -247,5 +379,15 @@
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnCadastrar;
         private System.Windows.Forms.DataGridView DgvFuncionarios;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox GpbBusca;
+        private System.Windows.Forms.ComboBox CbbBuscar;
+        private System.Windows.Forms.Label LblBuscar;
+        private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.TextBox TxtBuscar;
+        private System.Windows.Forms.Button BtnLimparBusca;
+        private System.Windows.Forms.Button BtnReativar;
+        private System.Windows.Forms.Button BtnNovo;
+        private System.Windows.Forms.Label LblNivelAcesso;
     }
 }

@@ -94,7 +94,7 @@ namespace DoeComPaixao.Classes
         }
         public void Cadastrar(List<Funcionario> funcionarios)
         {
-            string query = string.Format($"INSERT INTO Funcionario VALUES ('{CodFunc}','{Nome}','{Crypto.Sha256(Senha)}','{NivelAcesso}','{Ativo}','{Email}'); SELECT SCOPE_IDENTITY()");
+            string query = string.Format($"INSERT INTO Funcionario VALUES ('{Nome}','{Crypto.Sha256(Senha)}','1','1','{Email}'); SELECT SCOPE_IDENTITY()");
 
             Conexao cn = new Conexao(query);
 
@@ -138,7 +138,7 @@ namespace DoeComPaixao.Classes
         }
         public void Excluir()
         {
-            string query = string.Format($"UPDATE Funcionario SET Ativo = '{0}' WHERE Id = '{CodFunc}'");
+            string query = string.Format($"UPDATE Funcionario SET Ativo = '{0}' WHERE CodFunc = '{CodFunc}'");
             Conexao cn = new Conexao(query);
             try
             {
@@ -165,22 +165,13 @@ namespace DoeComPaixao.Classes
             switch (indexCbbBuscar)
             {
                 case 0:
-                    //Busca por nome
                     return funcionarios.Where(f => f.Nome.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-                //break; quando não for returno o Break é obrigatório
                 case 1:
-                    // Busca por E-mail
                     return funcionarios.Where(f => f.Email.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-                //break; quando não for returno o Break é obrigatório
                 case 2:
-                    // Buscar por matricula (id)
                     return funcionarios.Where(f => f.CodFunc == Convert.ToInt32(texto)).ToList();
-                //break; quando não for returno o Break é obrigatório
-
                 default:
-                    // Retorna sem filtro
                     return funcionarios;
-                    //break; quando não for returno o Break é obrigatório
             }
         }
         public static List<Funcionario> BuscarFuncionarios()
@@ -213,6 +204,28 @@ namespace DoeComPaixao.Classes
             }
 
         }
+        public void Reativar()
+        {
+            string query = string.Format($"UPDATE Funcionario SET Ativo = '{1}' WHERE CodFunc = '{CodFunc}'");
+            Conexao cn = new Conexao(query);
+            try
+            {
+                cn.AbrirConexao();
+                cn.comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                   "Erro",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+        }
+
         #endregion
     }
 }

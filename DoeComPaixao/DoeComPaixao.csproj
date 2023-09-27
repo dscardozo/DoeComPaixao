@@ -108,6 +108,7 @@
   <ItemGroup>
     <Content Include="Documentacao\DoeComPaixao-Caso de Uso.drawio.png" />
     <Content Include="Documentacao\DoeComPaixaoGit.txt" />
+    <None Include="Resources\LogoDoe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
