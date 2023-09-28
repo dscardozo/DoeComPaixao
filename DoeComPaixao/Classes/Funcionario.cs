@@ -170,6 +170,8 @@ namespace DoeComPaixao.Classes
                     return funcionarios.Where(f => f.Email.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
                 case 2:
                     return funcionarios.Where(f => f.CodFunc == Convert.ToInt32(texto)).ToList();
+                case 3:
+                    return funcionarios.Where(f => f.NivelAcesso == Convert.ToInt32(texto)).ToList();
                 default:
                     return funcionarios;
             }

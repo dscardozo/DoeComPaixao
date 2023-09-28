@@ -48,14 +48,15 @@ namespace DoeComPaixao.Telas
             DgvFuncionarios.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Email"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            DgvFuncionarios.Columns["CodFunc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["CodFunc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["NivelAcesso"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            DgvFuncionarios.ColumnHeadersHeight = 35;
+            //DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            DgvFuncionarios.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //DgvFuncionarios.ColumnHeadersHeight = 35;
             DgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
         }
@@ -137,7 +138,7 @@ namespace DoeComPaixao.Telas
             LblCodFunc.Text = "";
             TxtNome.Clear();
             TxtEmail.Clear();           
-            LblNivelAcess.Text = "";
+            LblNivelAcesso.Text = "";
             ChkAtivo.Checked = true;
             ChkAtivo.Enabled = false;
 
@@ -286,7 +287,19 @@ namespace DoeComPaixao.Telas
                 }
             }
         }
-                
+
+        private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnBuscar.PerformClick();
+            }
+        }
+
+        private void TelaCadFunc_Shown(object sender, EventArgs e)
+        {
+            TxtBuscar.Focus();
+        }
     }
 }
 
