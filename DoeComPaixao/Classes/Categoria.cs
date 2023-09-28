@@ -57,7 +57,7 @@ namespace DoeComPaixao.Classes
             }
         }
 
-        public void Incluir (List<Categorias> categorias)//Incluir/Criar Categorias
+        public void Adicionar (List<Categorias> categorias)//Incluir/Criar Categorias
         {
             string query = string.Format($"INSERT INTO Categoria VALUES('{CodCategoria}', '{CategoriaSuperior}', '{Nome}')");
             query += "; SELECT SCOPE_IDENTITY()";
