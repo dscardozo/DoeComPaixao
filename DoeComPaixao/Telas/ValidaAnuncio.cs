@@ -17,22 +17,17 @@ namespace DoeComPaixao.Telas
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void BtnValidar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
+        private void BtnRejeitar_Click(object sender, EventArgs e)
         {
 
         }
