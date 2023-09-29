@@ -289,7 +289,6 @@
             this.DgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvFuncionarios.Size = new System.Drawing.Size(999, 338);
             this.DgvFuncionarios.TabIndex = 1;
-            this.DgvFuncionarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvFuncionarios_CellFormatting);
             this.DgvFuncionarios.SelectionChanged += new System.EventHandler(this.DgvFuncionarios_SelectionChanged);
             // 
             // GpbBusca
@@ -390,6 +389,7 @@
             this.Name = "TelaCadFunc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Cadastro de Funcionário";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaCadFunc_Load);
             this.Shown += new System.EventHandler(this.TelaCadFunc_Shown);
             this.GpbCadastro.ResumeLayout(false);

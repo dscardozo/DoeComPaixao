@@ -28,6 +28,20 @@ namespace DoeComPaixao.Telas
 
         private void TelaPrincipal_Load(object sender, EventArgs e)
         {
+            TsmTrocarSair.Alignment = ToolStripItemAlignment.Right;
+            TslLogado.Text = _funcLogado.Nome;
+            TslNivelAcesso.Text = _funcLogado.NivelAcesso.ToString();
+            if (_funcLogado.NivelAcesso == 1)
+            {
+
+                TslDescNivel.Text = "Adminstrador";
+
+            }
+            else
+            {
+                TslDescNivel.Text = "Funcionário";
+
+            }
             TssDataHora.Text = DateTime.Now.ToLongDateString() + "   " + DateTime.Now.ToLongTimeString();
             TmrRelogio.Interval = 1000;
             TmrRelogio.Enabled = true;
@@ -49,6 +63,54 @@ namespace DoeComPaixao.Telas
         private void anúncioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Você realmente deseja Sair {_funcLogado.Nome}?"
+                              , "Sair"
+                              , MessageBoxButtons.YesNo
+                              , MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    Close();
+                }
+                else
+                    return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void trocarDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Você realmente Trocar de usuário {_funcLogado.Nome}?"
+                              , "Trocar"
+                              , MessageBoxButtons.YesNo
+                              , MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    TelaLogin tlLogin = new TelaLogin();
+                    tlLogin.ShowDialog();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
     }
 }

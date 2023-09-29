@@ -70,27 +70,15 @@ namespace DoeComPaixao.Telas
                 if (!funcionario.Ativo)
                 {
                     DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
-                    if (_logado.NivelAcesso != 1)
-                    {
-                        DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].Visible = false;
-                        DgvFuncionarios.Columns[DgvFuncionarios.Columns.Count - 1].Visible = false;
-                    }
+                    //if (_logado.NivelAcesso != 1)
+                    //{
+                    //    DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].Visible = false;
+                    //    DgvFuncionarios.Columns[DgvFuncionarios.Columns.Count - 1].Visible = false;
+                    //}
                 }
             }
         }       
-        private void DgvFuncionarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == DgvFuncionarios.Columns["Ativo"].Index) 
-            {
-                DataGridViewRow row = DgvFuncionarios.Rows[e.RowIndex];
-                bool ativo = Convert.ToBoolean(row.Cells["Ativo"].Value);
 
-                if (!ativo)
-                {
-                    row.DefaultCellStyle.BackColor = Color.LightCoral;
-                }
-            }
-        }
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
             if (_logado.NivelAcesso != 1)

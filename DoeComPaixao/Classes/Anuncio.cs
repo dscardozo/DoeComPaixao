@@ -11,7 +11,7 @@ namespace DoeComPaixao.Classes
     {
         #region Propriedades
         public int CodAnun { get; set; }
-        public int CodCli { get; set; } 
+        public int CodCli { get; set; }
         public string NomeCli { get; set; }
         public string TituloAnun { get; set; }
         public string Descricao { get; set; }
@@ -35,7 +35,7 @@ namespace DoeComPaixao.Classes
         #endregion
 
         #region Métodos
-        public void AceitarAnuncio () 
+        public void AceitarAnuncio()
         {
             string query = string.Format($"SELECT A.CodAnuncio = '{CodAnun}', A.ClienteAnunciante = '{CodCli}', C.Nome = '{NomeCli}', A.Titulo = '{TituloAnun}', A.Descricao = '{Descricao}', A. = '{DtCriacao}' FROM Anuncio AS A INNER JOIN  Cliente AS C ON A.ClienteAnunciante = C.CodCliente");
             Conexao cn = new Conexao(query);
@@ -51,8 +51,8 @@ namespace DoeComPaixao.Classes
                         CodCli = Convert.ToInt32(cn.dr[1]),
                         NomeCli = cn.dr[2].ToString(),
                         TituloAnun = cn.dr[3].ToString(),
-                        Descricao= cn.dr[4].ToString(), 
-                        DtCriacao = Convert.ToDateTime(cn.dr[5]),   
+                        Descricao = cn.dr[4].ToString(),
+                        DtCriacao = Convert.ToDateTime(cn.dr[5]),
                     });
                 }
                 return anuncios;
@@ -67,8 +67,8 @@ namespace DoeComPaixao.Classes
                 cn.FecharConexao();
             }
         }
-        public void RejeitarAnuncio() 
-        { 
+        public void RejeitarAnuncio()
+        {
         }
 
         #endregion
