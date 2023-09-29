@@ -190,19 +190,25 @@
             // 
             // StsBarraStatus
             // 
-            this.StsBarraStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StsBarraStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StsBarraStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StlData});
-            this.StsBarraStatus.Location = new System.Drawing.Point(0, 335);
+            this.StsBarraStatus.Location = new System.Drawing.Point(0, 333);
             this.StsBarraStatus.Name = "StsBarraStatus";
             this.StsBarraStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.StsBarraStatus.Size = new System.Drawing.Size(380, 22);
+            this.StsBarraStatus.Size = new System.Drawing.Size(380, 24);
             this.StsBarraStatus.TabIndex = 6;
             // 
             // StlData
             // 
+            this.StlData.BackColor = System.Drawing.Color.Transparent;
+            this.StlData.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.StlData.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
+            this.StlData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.StlData.Name = "StlData";
-            this.StlData.Size = new System.Drawing.Size(220, 17);
+            this.StlData.Size = new System.Drawing.Size(254, 19);
             this.StlData.Text = "Quarta-feira, 20 de Setembro de 2023";
             // 
             // TmrRelogio
@@ -213,18 +219,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(380, 357);
             this.Controls.Add(this.StsBarraStatus);
             this.Controls.Add(this.BtnLimpar);
             this.Controls.Add(this.PicLogo);
             this.Controls.Add(this.GpbLogin);
             this.Controls.Add(this.BtnLogin);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela de Login";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.TelaLogin_Load);
             this.GpbLogin.ResumeLayout(false);
             this.GpbLogin.PerformLayout();

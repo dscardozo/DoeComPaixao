@@ -13,7 +13,7 @@ namespace DoeComPaixao.Classes
         
         #region Variáveis
                                     
-        private static string _strConexao = @"Data Source=VPR0687139W10-1;Initial Catalog=DoeComPaixao;Integrated Security=True";
+        private static string _strConexao = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=DoeComPaixao;Integrated Security=True";
         public SqlConnection conexao = new SqlConnection(_strConexao);
         public SqlCommand comando; 
         public SqlDataAdapter da; 

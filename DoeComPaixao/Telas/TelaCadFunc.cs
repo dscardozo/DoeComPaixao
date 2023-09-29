@@ -70,13 +70,9 @@ namespace DoeComPaixao.Telas
                 if (!funcionario.Ativo)
                 {
                     DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
-                    //if (_logado.NivelAcesso != 1)
-                    //{
-                    //    DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].Visible = false;
-                    //    DgvFuncionarios.Columns[DgvFuncionarios.Columns.Count - 1].Visible = false;
-                    //}
                 }
             }
+            SubstituirValores();
         }       
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
@@ -288,6 +284,27 @@ namespace DoeComPaixao.Telas
         {
             TxtBuscar.Focus();
         }
+
+        private void SubstituirValores()
+        {
+            foreach (DataGridViewRow row in DgvFuncionarios.Rows)
+            {
+                // Substituir valores na primeira coluna (booleanos)
+                if (row.Cells["Ativo"].Value != null)
+                {
+                    bool valorBooleano = (bool)row.Cells["Ativo"].Value;
+                    row.Cells["Ativo"].Value = valorBooleano ? "Ativo" : "Inativo";
+                }
+
+                // Substituir valores na segunda coluna (string)
+                if (row.Cells["NivelAcesso"].Value != null)
+                {
+                    string valorString = row.Cells["NivelAcesso"].Value.ToString();
+                    row.Cells["NivelAcesso"].Value = valorString == "1" ? "Administrador" : "Funcionário";
+                }
+            }
+        }
+        
     }
 }
 

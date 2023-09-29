@@ -67,9 +67,7 @@
     <Compile Include="Telas\TelaCadFunc.Designer.cs">
       <DependentUpon>TelaCadFunc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\TelaCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Telas\TelaCategoria.cs" />
     <Compile Include="Telas\TelaCategoria.Designer.cs">
       <DependentUpon>TelaCategoria.cs</DependentUpon>
     </Compile>
