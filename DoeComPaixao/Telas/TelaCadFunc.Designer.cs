@@ -51,6 +51,7 @@
             this.LblCodF = new System.Windows.Forms.Label();
             this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.GpbBusca = new System.Windows.Forms.GroupBox();
+            this.CbbTipoNivelAcesso = new System.Windows.Forms.ComboBox();
             this.BtnLimparBusca = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
@@ -98,7 +99,7 @@
             this.LblNivelAcesso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LblNivelAcesso.Location = new System.Drawing.Point(381, 31);
             this.LblNivelAcesso.Name = "LblNivelAcesso";
-            this.LblNivelAcesso.Size = new System.Drawing.Size(37, 29);
+            this.LblNivelAcesso.Size = new System.Drawing.Size(145, 29);
             this.LblNivelAcesso.TabIndex = 18;
             this.LblNivelAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -295,6 +296,7 @@
             // 
             this.GpbBusca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GpbBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(158)))));
+            this.GpbBusca.Controls.Add(this.CbbTipoNivelAcesso);
             this.GpbBusca.Controls.Add(this.BtnLimparBusca);
             this.GpbBusca.Controls.Add(this.BtnBuscar);
             this.GpbBusca.Controls.Add(this.TxtBuscar);
@@ -308,6 +310,15 @@
             this.GpbBusca.TabIndex = 2;
             this.GpbBusca.TabStop = false;
             this.GpbBusca.Text = "Painel de Busca";
+            // 
+            // CbbTipoNivelAcesso
+            // 
+            this.CbbTipoNivelAcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbbTipoNivelAcesso.FormattingEnabled = true;
+            this.CbbTipoNivelAcesso.Location = new System.Drawing.Point(302, 37);
+            this.CbbTipoNivelAcesso.Name = "CbbTipoNivelAcesso";
+            this.CbbTipoNivelAcesso.Size = new System.Drawing.Size(285, 32);
+            this.CbbTipoNivelAcesso.TabIndex = 5;
             // 
             // BtnLimparBusca
             // 
@@ -344,6 +355,7 @@
             // 
             // CbbBuscar
             // 
+            this.CbbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbbBuscar.FormattingEnabled = true;
             this.CbbBuscar.Items.AddRange(new object[] {
@@ -355,6 +367,7 @@
             this.CbbBuscar.Name = "CbbBuscar";
             this.CbbBuscar.Size = new System.Drawing.Size(161, 28);
             this.CbbBuscar.TabIndex = 1;
+            this.CbbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbbBuscar_SelectedIndexChanged);
             // 
             // LblBuscar
             // 
@@ -430,5 +443,6 @@
         private System.Windows.Forms.Button BtnNovo;
         private System.Windows.Forms.Label LblNivelAcesso;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox CbbTipoNivelAcesso;
     }
 }

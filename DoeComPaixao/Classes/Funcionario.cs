@@ -8,13 +8,21 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DoeComPaixao.Classes
 {
-    public class Funcionario 
+    public enum NivelAcesso
+    {
+        Mediador,
+        Administrador
+    }
+
+
+    public class Funcionario
     {
         #region Propriedades
         public int CodFunc { get; set; }
-        public string Nome { get; set; }       
+        public string Nome { get; set; }
         public string Senha { get; set; }
-        public int NivelAcesso { get; set; }
+        //public int NivelAcesso { get; set; }
+        public NivelAcesso NivelAcesso { get; set; }
         public bool Ativo { get; set; }
         public string Email { get; set; }
 
@@ -24,15 +32,15 @@ namespace DoeComPaixao.Classes
 
         public Funcionario()
         {
-            
+
         }
 
         public Funcionario(int codFunc, string nome, string senha, int nivelAcesso, bool ativo, string email)
         {
             CodFunc = codFunc;
-            Nome = nome;            
+            Nome = nome;
             Senha = senha;
-            NivelAcesso = nivelAcesso;
+            NivelAcesso = (NivelAcesso)nivelAcesso;
             Ativo = ativo;
             Email = email;
         }
@@ -58,9 +66,9 @@ namespace DoeComPaixao.Classes
                     while (cn.dr.Read())
                     {
                         funcionario.CodFunc = Convert.ToInt32(cn.dr[0]);
-                        funcionario.Nome = cn.dr[1].ToString();                        
+                        funcionario.Nome = cn.dr[1].ToString();
                         funcionario.Senha = cn.dr[2].ToString();
-                        funcionario.NivelAcesso = Convert.ToInt32(cn.dr[3]);
+                        funcionario.NivelAcesso = (NivelAcesso)Convert.ToInt32(cn.dr[3]);
                         funcionario.Ativo = Convert.ToBoolean(cn.dr[4]);
                         funcionario.Email = cn.dr[5].ToString();
                     }
@@ -162,6 +170,7 @@ namespace DoeComPaixao.Classes
         }
         public static List<Funcionario> Buscar(List<Funcionario> funcionarios, int indexCbbBuscar, string texto)
         {
+
             switch (indexCbbBuscar)
             {
                 case 0:
@@ -171,7 +180,7 @@ namespace DoeComPaixao.Classes
                 case 2:
                     return funcionarios.Where(f => f.CodFunc == Convert.ToInt32(texto)).ToList();
                 case 3:
-                    return funcionarios.Where(f => f.NivelAcesso == Convert.ToInt32(texto)).ToList();
+                    return funcionarios.Where(f => f.NivelAcesso == (NivelAcesso)Enum.Parse(typeof(NivelAcesso), texto)).ToList();
                 default:
                     return funcionarios;
             }
@@ -190,9 +199,9 @@ namespace DoeComPaixao.Classes
                     funcionarios.Add(new Funcionario()
                     {
                         CodFunc = Convert.ToInt32(cn.dr[0]),
-                        Nome = cn.dr[1].ToString(),                        
+                        Nome = cn.dr[1].ToString(),
                         Senha = cn.dr[2].ToString(),
-                        NivelAcesso = Convert.ToInt32(cn.dr[3]),
+                        NivelAcesso = (NivelAcesso)Convert.ToInt32(cn.dr[3]),
                         Ativo = Convert.ToBoolean(cn.dr[4]),
                         Email = cn.dr[5].ToString()
                     });

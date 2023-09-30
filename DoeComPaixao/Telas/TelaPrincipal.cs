@@ -31,7 +31,7 @@ namespace DoeComPaixao.Telas
             TsmTrocarSair.Alignment = ToolStripItemAlignment.Right;
             TslLogado.Text = _funcLogado.Nome;
             TslNivelAcesso.Text = _funcLogado.NivelAcesso.ToString();
-            if (_funcLogado.NivelAcesso == 1)
+            if (_funcLogado.NivelAcesso == NivelAcesso.Administrador)
             {
 
                 TslDescNivel.Text = "Adminstrador";

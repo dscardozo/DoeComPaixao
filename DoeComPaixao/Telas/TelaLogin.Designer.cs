@@ -136,6 +136,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(242, 24);
             this.TxtEmail.TabIndex = 2;
+            this.TxtEmail.Text = "admin";
             this.TxtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 

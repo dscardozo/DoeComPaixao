@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DoeComPaixao.Telas
 {
@@ -23,7 +24,7 @@ namespace DoeComPaixao.Telas
 
             try
             {
-                _funcionarios = Funcionario.BuscarFuncionarios().ConvertAll(u => (Funcionario)u);
+                _funcionarios = Funcionario.BuscarFuncionarios();
             }
             catch (Exception ex)
             {
@@ -36,11 +37,11 @@ namespace DoeComPaixao.Telas
         }
         private void ConfiguraDgvFuncionarios()
         {
-            DgvFuncionarios.Columns.Add("CodFunc", "Código do Funcionário");
+            DgvFuncionarios.Columns.Add("CodFunc", "Código");
             DgvFuncionarios.Columns.Add("Nome", "Nome");           
-            DgvFuncionarios.Columns.Add("NivelAcesso", "Nível de Acesso");
-            DgvFuncionarios.Columns.Add("Ativo", "Ativo");
             DgvFuncionarios.Columns.Add("Email", "E-mail");
+            DgvFuncionarios.Columns.Add("NivelAcesso", "Tipo Acesso");
+            DgvFuncionarios.Columns.Add("Ativo", "Ativo");
 
             DgvFuncionarios.Columns["CodFunc"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Nome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -48,15 +49,13 @@ namespace DoeComPaixao.Telas
             DgvFuncionarios.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Email"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            DgvFuncionarios.Columns["CodFunc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgvFuncionarios.Columns["CodFunc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgvFuncionarios.Columns["NivelAcesso"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgvFuncionarios.Columns["NivelAcesso"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            //DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            
             DgvFuncionarios.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //DgvFuncionarios.ColumnHeadersHeight = 35;
             DgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
         }
@@ -66,21 +65,20 @@ namespace DoeComPaixao.Telas
 
             foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
             {
-                DgvFuncionarios.Rows.Add(funcionario.CodFunc, funcionario.Nome, funcionario.NivelAcesso, funcionario.Ativo, funcionario.Email);
+                DgvFuncionarios.Rows.Add(funcionario.CodFunc, funcionario.Nome, funcionario.Email, funcionario.NivelAcesso, funcionario.Ativo ? "Ativo" : "Inativo" );
                 if (!funcionario.Ativo)
                 {
                     DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
                 }
-            }
-            SubstituirValores();
+            }            
         }       
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
-            if (_logado.NivelAcesso != 1)
+            if (_logado.NivelAcesso != NivelAcesso.Administrador)
             {
                 BtnCadastrar.Enabled = false;
-                MessageBox.Show("Seu Nivel de acesso não permite cadastrar alunos",
+                MessageBox.Show("Seu Nivel de acesso não permite cadastrar funcionários.",
                                 "Erro de permissão",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
@@ -144,6 +142,7 @@ namespace DoeComPaixao.Telas
                 _funcionarioSelecionado = _funcionarios.Find(f => f.CodFunc == (int)DgvFuncionarios.SelectedRows[0].Cells[0].Value);
                 LblCodFunc.Text = _funcionarioSelecionado.CodFunc.ToString();
                 LblNivelAcesso.Text = _funcionarioSelecionado.NivelAcesso.ToString();
+                           
                 TxtNome.Text = _funcionarioSelecionado.Nome;
                 TxtEmail.Text = _funcionarioSelecionado.Email;
                
@@ -179,6 +178,9 @@ namespace DoeComPaixao.Telas
             {
                 ConfiguraDgvFuncionarios();
                 CarregaDgvFuncionarios();
+
+                CbbTipoNivelAcesso.DataSource = Enum.GetValues(typeof(NivelAcesso));
+
                 LimpaCampos();
             }
             catch (Exception ex)
@@ -191,7 +193,7 @@ namespace DoeComPaixao.Telas
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            List<Funcionario> listaFuncFiltrada = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, TxtBuscar.Text);
+            List<Funcionario> listaFuncFiltrada = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, CbbBuscar.SelectedIndex == 3 ? CbbTipoNivelAcesso.SelectedValue.ToString() : TxtBuscar.Text);
             CarregaDgvFuncionarios(listaFuncFiltrada);
         }
         private void BtnLimparBusca_Click(object sender, EventArgs e)
@@ -245,7 +247,7 @@ namespace DoeComPaixao.Telas
                                     MessageBoxIcon.Error);
                 }
             }
-            else if (_logado.NivelAcesso == 1)
+            else if (_logado.NivelAcesso == NivelAcesso.Administrador)
             {
                 try
                 {
@@ -284,27 +286,20 @@ namespace DoeComPaixao.Telas
         {
             TxtBuscar.Focus();
         }
-
-        private void SubstituirValores()
+       
+        private void CbbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in DgvFuncionarios.Rows)
+            if (CbbBuscar.SelectedIndex == 3)
             {
-                // Substituir valores na primeira coluna (booleanos)
-                if (row.Cells["Ativo"].Value != null)
-                {
-                    bool valorBooleano = (bool)row.Cells["Ativo"].Value;
-                    row.Cells["Ativo"].Value = valorBooleano ? "Ativo" : "Inativo";
-                }
-
-                // Substituir valores na segunda coluna (string)
-                if (row.Cells["NivelAcesso"].Value != null)
-                {
-                    string valorString = row.Cells["NivelAcesso"].Value.ToString();
-                    row.Cells["NivelAcesso"].Value = valorString == "1" ? "Administrador" : "Funcionário";
-                }
+                TxtBuscar.Visible = false;
+                CbbTipoNivelAcesso.Visible = true;
+            }
+            else
+            {
+                TxtBuscar.Visible = true;
+                CbbTipoNivelAcesso.Visible = false;
             }
         }
-        
     }
 }
 
